@@ -28,6 +28,11 @@ export function setUnauthorizedHandler(handler: (() => void) | null): void {
   onUnauthorized = handler
 }
 
+export function handleUnauthorized(): void {
+  clearToken()
+  onUnauthorized?.()
+}
+
 export function buildUrl(path: string): string {
   return `${BASE_URL}${path}`
 }
@@ -78,8 +83,7 @@ async function request<T>(
 
   if (json && !json.success) {
     if (json.error.code === ERROR_CODES.COMMON_401) {
-      clearToken()
-      onUnauthorized?.()
+      handleUnauthorized()
     }
     throw new ApiError(response.status, json.error.code, json.error.message)
   }
