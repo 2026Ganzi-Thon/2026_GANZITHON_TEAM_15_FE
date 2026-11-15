@@ -35,3 +35,71 @@ export const ERROR_CODES = {
 } as const
 
 export type KnownErrorCode = (typeof ERROR_CODES)[keyof typeof ERROR_CODES]
+
+// 도메인 타입 (Swagger 기준)
+// optional 여부 미확인, 응답 필드는 Swagger에 표시된 그대로 필수로 표기
+// emotion, careType: Swagger는 예시만 확인, 전체 값 미확정
+// nextStageAt: Swagger는 number로 표시, Notion API 명세는 5단계에서 null이라고 기재, 어긋남 확인 필요
+
+export interface LoginRequest {
+  email: string
+  password: string
+}
+
+export interface LoginResponse {
+  userId: number
+  nickname: string
+  accessToken: string
+  expiresInSeconds: number
+}
+
+export interface SignupRequest {
+  email: string
+  password: string
+  nickname: string
+  agreed: boolean
+}
+
+export interface SignupResponse {
+  userId: number
+  nickname: string
+  sheepStage: number
+  sheepWoolCount: number
+  accessToken: string
+  expiresInSeconds: number
+}
+
+export interface MeResponse {
+  userId: number
+  nickname: string
+}
+
+export interface CreateDiaryRequest {
+  emotion: string
+}
+
+export interface CreateDiaryResponse {
+  diaryId: number
+  firstMessage: string
+}
+
+export interface StartCareRequest {
+  careType: string
+}
+
+export interface StartCareResponse {
+  diaryId: number
+  careType: string
+  message: string
+}
+
+export interface MySheepResponse {
+  stage: number
+  stageName: string
+  woolCount: number
+  stageStartAt: number
+  nextStageAt: number | null
+  woolToNextStage: number
+  yarnCount: number
+  equippedItems: string[]
+}
