@@ -121,11 +121,18 @@ export async function streamSse(
   }
 
   const contentType = response.headers.get('Content-Type') ?? ''
-  if (!response.ok || !contentType.toLowerCase().includes('text/event-stream')) {
+  const mediaType = contentType.split(';', 1)[0].trim().toLowerCase()
+  if (!response.ok || mediaType !== 'text/event-stream') {
     let payload: unknown
     try {
       payload = await response.json() as unknown
-    } catch {
+    } catch (error) {
+      if (
+        (error instanceof DOMException && error.name === 'AbortError') ||
+        options.signal?.aborted
+      ) {
+        return
+      }
       payload = null
     }
 
