@@ -34,7 +34,12 @@ export function handleUnauthorized(): void {
 }
 
 export function buildUrl(path: string): string {
-  return `${BASE_URL}${path}`
+  if (/^[a-zA-Z][a-zA-Z\d+.-]*:/.test(path)) return path
+  if (!BASE_URL) return path
+
+  const baseUrl = BASE_URL.replace(/\/+$/, '')
+  const normalizedPath = path.startsWith('/') ? path : `/${path}`
+  return `${baseUrl}${normalizedPath}`
 }
 
 export function authHeaders(): Record<string, string> {
@@ -73,7 +78,11 @@ async function request<T>(
   let json: ApiResponse<T> | null = null
   try {
     json = (await response.json()) as ApiResponse<T>
-  } catch {
+  } catch (error) {
+    if (error instanceof DOMException && error.name === 'AbortError') throw error
+    if (options.signal?.aborted) {
+      throw new DOMException('The operation was aborted.', 'AbortError')
+    }
     // 본문이 JSON이 아니면 json은 null로 유지됩니다.
   }
 
