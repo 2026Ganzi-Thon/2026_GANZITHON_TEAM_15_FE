@@ -1,0 +1,21 @@
+.ui-page { --ui-bg:#f6efdd; --ui-surface:#fffbf2; --ui-text:#2a2523; --ui-muted:#6b625c; --ui-line:#e2d8c2; --ui-primary:#467160; box-sizing:border-box; width:100%; max-width:390px; min-height:100svh; margin:auto; padding:16px 24px 24px; display:flex; flex-direction:column; gap:16px; background:var(--ui-bg); color:var(--ui-text); font:16px/1.5 'Noto Sans KR',sans-serif; text-align:left; color-scheme:light; }
+.ui-page * { box-sizing:border-box; }
+.ui-page button,.ui-page input { font:inherit; }
+.ui-header { display:flex; gap:4px; align-items:center; }
+.ui-header button { display:grid; place-items:center; border:0; background:none; width:44px; height:44px; cursor:pointer; }
+.ui-header h1 { margin:0; font:700 18px/1.5 'Noto Sans KR',sans-serif; color:inherit; letter-spacing:normal; }
+.ui-page h2 { margin:0; font:700 20px/1.5 'Noto Sans KR',sans-serif; color:inherit; }
+.ui-card { border-radius:14px; padding:14px 16px; background:var(--ui-surface); font-size:14px; line-height:21px; }
+.ui-card small { display:block; color:var(--ui-muted); font-size:12px; margin-bottom:4px; }
+.ui-button { border:0; border-radius:14px; min-height:54px; padding:12px 20px; background:var(--ui-primary); color:var(--ui-surface); font-weight:700!important; cursor:pointer; }
+.ui-button:disabled { opacity:.5; cursor:not-allowed; }
+.ui-page :focus-visible { outline:3px solid var(--ui-primary); outline-offset:3px; }
+.report-reasons { margin:0; padding:0; border:0; }
+.report-reasons legend { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); }
+.report-reason { display:flex; justify-content:space-between; gap:16px; align-items:center; padding:16px 0; border-bottom:1px solid var(--ui-line); cursor:pointer; }
+.report-reason:last-child { border:0; }
+.report-reason small { display:block; color:var(--ui-muted); font-size:13px; }
+.report-reason input { appearance:none; width:22px; height:22px; flex-shrink:0; border:2px solid var(--ui-line); border-radius:50%; margin:0; }
+.report-reason input:checked { border:0; background:url('/assets/figma/radio-selected.svg') center/22px 22px no-repeat; }
+.report-submit { margin-top:auto; }
+.ui-error { color:#963b31; font-size:14px; }

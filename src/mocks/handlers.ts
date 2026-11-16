@@ -3,5 +3,7 @@
 import { authHandlers } from './handlers/auth'
 import { diariesHandlers } from './handlers/diaries'
 import { sheepHandlers } from './handlers/sheep'
+import { reportHandlers } from './handlers/report'
+import { frontend2Handlers } from './handlers/frontend2'
 
-export const handlers = [...authHandlers, ...sheepHandlers, ...diariesHandlers]
+export const handlers = [...frontend2Handlers, ...authHandlers, ...sheepHandlers, ...diariesHandlers, ...reportHandlers]
