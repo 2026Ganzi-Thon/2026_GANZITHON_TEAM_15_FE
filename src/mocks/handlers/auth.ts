@@ -1,7 +1,7 @@
 // 위치·이름 팀 확정 전 제안. 도메인별 핸들러 파일 구조는 작업 분담 규칙 기준.
 
 import { http, HttpResponse } from 'msw'
-import type { ApiResponse, LoginResponse } from '../../api/types'
+import type { ApiResponse, LoginResponse, MeResponse } from '../../api/types'
 
 const loginResponse: ApiResponse<LoginResponse> = {
   success: true,
@@ -16,4 +16,10 @@ const loginResponse: ApiResponse<LoginResponse> = {
 
 export const authHandlers = [
   http.post(/\/auth\/login$/, () => HttpResponse.json(loginResponse)),
+  http.get(/\/users\/me$/, () =>
+    HttpResponse.json<ApiResponse<MeResponse>>({
+      success: true,
+      data: { userId: 1, nickname: '다정한 목동' },
+    }),
+  ),
 ]
