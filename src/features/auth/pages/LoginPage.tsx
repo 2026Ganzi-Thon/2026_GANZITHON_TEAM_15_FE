@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from 'react'
 import { useMutation } from '@tanstack/react-query'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { ApiError } from '../../../api/client'
 import { login } from '../../../api/auth'
 import type { LoginRequest, LoginResponse } from '../../../api/types'
@@ -59,7 +59,9 @@ function LoginPage() {
         </button>
         {errorMessage && <p role="alert">{errorMessage}</p>}
       </form>
-      <p>계정이 없어요 가입하기</p>
+      <p>
+        계정이 없어요 <Link to="/signup">가입하기</Link>
+      </p>
     </main>
   )
 }
