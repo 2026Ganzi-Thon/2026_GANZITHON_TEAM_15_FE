@@ -1,0 +1,232 @@
+.care-chat-page {
+  height: 100svh;
+  min-height: 100svh;
+  gap: 0;
+  overflow: hidden;
+  padding-bottom: 12px;
+}
+
+.care-chat-page > .ui-header {
+  flex: 0 0 auto;
+  margin-bottom: 8px;
+}
+
+.care-chat-context {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex: 0 0 auto;
+  padding: 0 4px 12px;
+  color: var(--ui-muted);
+  font-size: 13px;
+}
+
+.care-chat-context span:first-child {
+  color: var(--ui-primary);
+  font-weight: 700;
+}
+
+.care-chat-progress {
+  flex: 0 0 auto;
+  padding: 10px 12px;
+  border-radius: var(--ui-radius);
+  background: var(--ui-surface);
+}
+
+.care-chat-progress-copy {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  margin-bottom: 7px;
+  color: var(--ui-muted);
+  font-size: 12px;
+}
+
+.care-ready-label {
+  color: var(--ui-primary);
+}
+
+.care-limit-label {
+  color: #963b31;
+}
+
+.care-chat-progress-track {
+  height: 6px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--ui-line);
+}
+
+.care-chat-progress-track span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--ui-primary);
+  transition: width 160ms ease;
+}
+
+.care-chat-messages {
+  min-height: 0;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 18px 0;
+  scrollbar-width: thin;
+}
+
+.care-chat-message {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  max-width: 92%;
+}
+
+.care-chat-message-assistant {
+  align-self: flex-start;
+}
+
+.care-chat-message-user {
+  align-self: flex-end;
+  justify-content: flex-end;
+}
+
+.care-chat-message .sheep {
+  flex: 0 0 42px;
+}
+
+.care-chat-message p {
+  max-width: calc(100% - 50px);
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: 16px 16px 16px 4px;
+  background: var(--ui-surface);
+  color: var(--ui-text);
+  font-size: 14px;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+.care-chat-message-user p {
+  max-width: 88%;
+  border-radius: 16px 16px 4px 16px;
+  background: var(--ui-primary-soft);
+}
+
+.care-streaming-indicator {
+  color: var(--ui-muted);
+}
+
+.care-chat-notice,
+.care-chat-error {
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-size: 13px;
+}
+
+.care-chat-notice {
+  background: var(--ui-primary-soft);
+  color: var(--ui-primary);
+}
+
+.care-chat-error {
+  background: #f7e7e3;
+  color: #963b31;
+}
+
+.care-crisis-notice {
+  padding: 14px;
+  border: 1px solid var(--ui-line);
+  border-radius: var(--ui-radius);
+  background: var(--ui-surface);
+}
+
+.care-crisis-notice p {
+  margin: 0 0 12px;
+  line-height: 1.6;
+}
+
+.care-crisis-notice > div {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.care-crisis-notice a {
+  color: var(--ui-primary);
+  font-weight: 700;
+}
+
+.care-crisis-notice .ui-button {
+  min-height: 40px;
+  padding: 8px 12px;
+}
+
+.care-chat-composer {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  flex: 0 0 auto;
+  padding: 10px;
+  border: 1px solid var(--ui-line);
+  border-radius: 18px;
+  background: var(--ui-surface);
+}
+
+.care-chat-composer textarea {
+  min-width: 0;
+  min-height: 42px;
+  max-height: 120px;
+  flex: 1;
+  resize: vertical;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--ui-text);
+  line-height: 1.5;
+}
+
+.care-chat-composer textarea::placeholder {
+  color: var(--ui-muted);
+}
+
+.care-chat-composer textarea:focus-visible {
+  outline: 2px solid var(--ui-primary);
+  outline-offset: 2px;
+}
+
+.care-chat-composer .ui-button {
+  min-height: 42px;
+  padding: 8px 14px;
+}
+
+.care-chat-finish {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 8px;
+}
+
+.care-chat-finish > p:first-child:not([role='alert']) {
+  color: var(--ui-muted);
+  font-size: 12px;
+  text-align: center;
+}
+
+.care-chat-finish .ui-button {
+  min-height: 48px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .care-chat-progress-track span {
+    transition: none;
+  }
+}

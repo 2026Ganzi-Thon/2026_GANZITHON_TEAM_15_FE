@@ -93,6 +93,23 @@ export interface StartCareResponse {
   message: string
 }
 
+export interface CareMessageRequest {
+  content: string
+}
+
+export interface CompleteCareResponse {
+  summary: {
+    careType: string
+    text: string
+  }
+  wool: {
+    added: number
+    total: number
+    stage: number
+    stageUp: boolean
+  }
+}
+
 export interface MySheepResponse {
   stage: number
   stageName: string

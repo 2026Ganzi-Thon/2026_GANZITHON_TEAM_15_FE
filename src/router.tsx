@@ -10,9 +10,10 @@ import { meRoutes } from './features/me/routes'
 import { safetyRoutes } from './features/safety/routes'
 import { NotificationListener } from './features/wool/NotificationListener'
 import { reportRoutes } from './features/report/routes'
+import { careRoutes } from './features/care/routes'
 
 export const router = createBrowserRouter([{ element: <><Outlet /><NotificationListener /></>, children: [
-  ...authRoutes, ...homeRoutes, ...reportRoutes, ...farmRoutes, ...worryRoutes, ...meRoutes, ...safetyRoutes,
+  ...authRoutes, ...homeRoutes, ...reportRoutes, ...farmRoutes, ...worryRoutes, ...careRoutes, ...meRoutes, ...safetyRoutes,
   ...['/dress', '/me/records/delete', '/me/account'].map(path => ({ path, element: <IntegrationPage /> })),
   { path: '*', element: <IntegrationPage /> },
 ] }])
