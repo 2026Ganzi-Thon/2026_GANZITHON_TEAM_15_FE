@@ -19,3 +19,10 @@
 .report-reason input:checked { border:0; background:url('/assets/figma/radio-selected.svg') center/22px 22px no-repeat; }
 .report-submit { margin-top:auto; }
 .ui-error { color:#963b31; font-size:14px; }
+
+
+/* 양 꾸미기 */
+.dress-items { display:flex; flex-direction:column; gap:10px; }
+.dress-item { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.dress-item .ui-button { flex-shrink:0; }
+.ui-button.compact { min-height:40px; padding:8px 14px; font-size:13px; }

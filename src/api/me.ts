@@ -9,4 +9,5 @@ export const meApi = {
   blocks: (signal?: AbortSignal) => api.get<Block[]>('/blocks', signal),
   block: (target: ContentTarget) => api.post<Block>('/blocks', target),
   unblock: (id: number) => api.delete(`/blocks/${id}`),
+  deleteAccount: () => api.delete<void>('/me'),
 }

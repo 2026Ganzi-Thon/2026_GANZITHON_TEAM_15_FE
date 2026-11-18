@@ -3,9 +3,10 @@
 import { authHandlers } from './handlers/auth'
 import { careHandlers } from './handlers/care'
 import { diariesHandlers } from './handlers/diaries'
+import { dressHandlers } from './handlers/dress'
 import { sheepHandlers } from './handlers/sheep'
 import { reportHandlers } from './handlers/report'
 import { frontend2Handlers } from './handlers/frontend2'
 import { careStartHandlers } from './handlers/careStart'
 
-export const handlers = [...frontend2Handlers, ...authHandlers, ...sheepHandlers, ...diariesHandlers, ...careHandlers, ...careStartHandlers, ...reportHandlers]
+export const handlers = [...frontend2Handlers, ...authHandlers, ...sheepHandlers, ...diariesHandlers, ...dressHandlers, ...careHandlers, ...careStartHandlers, ...reportHandlers]

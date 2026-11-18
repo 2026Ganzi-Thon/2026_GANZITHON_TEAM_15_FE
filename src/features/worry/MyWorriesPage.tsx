@@ -12,7 +12,7 @@ export default function MyWorriesPage() {
   return <Page><BackHeader title="내 고민" /><div className="tabs">{(['active','graduated'] as const).map(value => <button key={value} className={status === value ? 'active' : ''} aria-pressed={status === value} onClick={() => setParams({ status: value })}>{value === 'active' ? '진행 중' : '보관함'} {status === value ? query.data?.sheep.length : ''}</button>)}</div>
     <QueryState pending={query.isPending} error={query.error} retry={() => query.refetch()} />
     {query.data?.sheep.length === 0 && <EmptyState title={status === 'active' ? '아직 올린 고민이 없어요' : '아직 보관한 고민이 없어요'} />}
-    {query.data?.sheep.map(s => <div className="worry-row" key={s.sheepId}><Sheep stage={s.stage} size={56} /><div className="grow">{s.hidden ? <p>{s.content}</p> : <Link to={`/worries/${s.sheepId}`} state={{ newWoolCount: s.newWoolCount }}>{s.content}</Link>}<small>{s.hidden ? '신고로 숨겨진 고민이에요' : status === 'graduated' ? `${s.graduatedAt ? new Date(s.graduatedAt).toLocaleDateString('ko-KR') : ''} 졸업` : s.newWoolCount ? `새 털 ${s.newWoolCount}올 도착` : '털을 기다리는 중'}</small></div></div>)}
+    {query.data?.sheep.map(s => <div className="worry-row" key={s.sheepId}><Sheep stage={s.stage} size={56} /><div className="grow">{s.hidden ? <p>{s.preview}</p> : <Link to={`/worries/${s.sheepId}`} state={{ newWoolCount: s.newWoolCount }}>{s.preview}</Link>}<small>{s.hidden ? '신고로 숨겨진 고민이에요' : status === 'graduated' ? `${s.graduatedAt ? new Date(s.graduatedAt).toLocaleDateString('ko-KR') : ''} 졸업` : s.newWoolCount ? `새 털 ${s.newWoolCount}올 도착` : '털을 기다리는 중'}</small></div></div>)}
     <Link className="ui-button report-submit" to="/worries/new">새 고민 올리기</Link>
   </Page>
 }

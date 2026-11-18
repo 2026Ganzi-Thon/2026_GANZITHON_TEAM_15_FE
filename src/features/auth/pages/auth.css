@@ -1,0 +1,261 @@
+.auth-page {
+  justify-content: flex-start;
+  gap: 0;
+  padding-top: max(42px, env(safe-area-inset-top));
+}
+
+.auth-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 18px 0 34px;
+  text-align: center;
+}
+
+.auth-sheep {
+  display: grid;
+  place-items: center;
+  width: 76px;
+  height: 76px;
+  margin-bottom: 10px;
+  border-radius: 50%;
+  background: var(--ui-primary-soft);
+  font-size: 42px;
+}
+
+.auth-brand-name {
+  color: var(--ui-primary);
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.auth-brand-copy {
+  margin-top: 5px;
+  color: var(--ui-muted);
+  font-size: 13px;
+}
+
+.auth-content {
+  width: 100%;
+  padding: 26px 20px 22px;
+  border: 1px solid var(--ui-line);
+  border-radius: 22px;
+  background: var(--ui-surface);
+  box-shadow: 0 8px 24px rgba(65, 53, 37, 0.06);
+}
+
+.auth-heading {
+  margin-bottom: 24px;
+}
+
+.auth-heading h1 {
+  margin: 0 0 7px;
+  color: var(--ui-text);
+  font-size: 23px;
+  font-weight: 800;
+  letter-spacing: -0.8px;
+  line-height: 1.4;
+}
+
+.auth-heading p {
+  color: var(--ui-muted);
+  font-size: 14px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+}
+
+.auth-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: var(--ui-text);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.auth-field input {
+  width: 100%;
+  min-height: 51px;
+  padding: 0 14px;
+  border: 1px solid var(--ui-line);
+  border-radius: 11px;
+  outline: none;
+  background: #fffdf8;
+  color: var(--ui-text);
+  font-size: 14px;
+  font-weight: 400;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.auth-field input::placeholder {
+  color: #aaa197;
+}
+
+.auth-field input:focus {
+  border-color: var(--ui-primary);
+  box-shadow: 0 0 0 3px rgba(70, 113, 96, 0.12);
+}
+
+.auth-forgot {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -8px;
+}
+
+.auth-forgot button {
+  padding: 4px 0;
+  border: 0;
+  background: none;
+  color: var(--ui-muted);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.auth-notice {
+  margin-top: -10px;
+  color: var(--ui-primary);
+  font-size: 13px;
+}
+
+.auth-nickname-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: -10px;
+  color: var(--ui-muted);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.auth-counter {
+  flex-shrink: 0;
+  color: var(--ui-primary);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.auth-agreement {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  color: var(--ui-muted);
+  font-size: 12px;
+  line-height: 1.6;
+  cursor: pointer;
+}
+
+.auth-agreement input {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  margin: 1px 0 0;
+  accent-color: var(--ui-primary);
+}
+
+.auth-submit {
+  width: 100%;
+  min-height: 54px;
+  margin-top: 4px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--ui-primary);
+  color: var(--ui-surface);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.15s, transform 0.15s;
+}
+
+.auth-submit:hover:not(:disabled) {
+  opacity: 0.92;
+}
+
+.auth-submit:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.auth-submit:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.auth-error {
+  color: #963b31;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.auth-switch {
+  margin-top: 22px;
+  color: var(--ui-muted);
+  font-size: 13px;
+  text-align: center;
+}
+
+.auth-switch a {
+  color: var(--ui-primary);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.auth-footer {
+  margin-top: auto;
+  padding: 28px 0 8px;
+  color: var(--ui-muted);
+  font-size: 12px;
+  text-align: center;
+}
+
+.auth-brand-compact {
+  padding-bottom: 22px;
+}
+
+.auth-brand-compact .auth-sheep {
+  width: 58px;
+  height: 58px;
+  font-size: 32px;
+}
+
+.auth-brand-compact .auth-brand-name {
+  font-size: 21px;
+}
+
+.auth-signup-page {
+  padding-top: max(20px, env(safe-area-inset-top));
+}
+
+.auth-signup-page .auth-content {
+  padding-top: 22px;
+}
+
+@media (max-height: 740px) {
+  .auth-page {
+    padding-top: 16px;
+  }
+
+  .auth-brand {
+    padding: 4px 0 18px;
+  }
+
+  .auth-sheep {
+    width: 58px;
+    height: 58px;
+    font-size: 32px;
+  }
+
+  .auth-content {
+    padding-top: 20px;
+    padding-bottom: 18px;
+  }
+
+  .auth-footer {
+    padding-top: 18px;
+  }
+}

@@ -1,5 +1,4 @@
 import { createBrowserRouter, Navigate, Outlet } from 'react-router-dom'
-import IntegrationPage from './components/IntegrationPage'
 import RequireAuth from './components/RequireAuth'
 import AuthRedirectHandler from './components/AuthRedirectHandler'
 import { authRoutes } from './features/auth/routes'
@@ -11,6 +10,11 @@ import { safetyRoutes } from './features/safety/routes'
 import { NotificationListener } from './features/wool/NotificationListener'
 import { reportRoutes } from './features/report/routes'
 import { careRoutes } from './features/care/routes'
+import RecordsPage from './features/records/pages/RecordsPage'
+import RecordDetailPage from './features/records/pages/RecordDetailPage'
+import DressPage from './features/dress/DressPage'
+import DeleteRecordsPage from './features/records/pages/DeleteRecordsPage'
+import AccountPage from './features/me/AccountPage'
 
 export const router = createBrowserRouter([
   {
@@ -32,11 +36,12 @@ export const router = createBrowserRouter([
           ...farmRoutes,
           ...worryRoutes,
           ...careRoutes,
+          { path: '/records', element: <RecordsPage /> },
+          { path: '/records/:diaryId', element: <RecordDetailPage /> },
           ...meRoutes,
-          ...['/dress', '/me/records/delete', '/me/account'].map(path => ({
-            path,
-            element: <IntegrationPage />,
-          })),
+          { path: '/dress', element: <DressPage /> },
+          { path: '/me/records/delete', element: <DeleteRecordsPage /> },
+          { path: '/me/account', element: <AccountPage /> },
         ],
       },
       { path: '*', element: <Navigate to="/" replace /> },

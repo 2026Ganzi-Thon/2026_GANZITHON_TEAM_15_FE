@@ -1,0 +1,244 @@
+.records-page {
+  gap: 18px;
+}
+
+.records-month {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+}
+
+.records-month h2 {
+  margin: 0;
+  font-size: 19px;
+}
+
+.records-month-arrow {
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--ui-surface);
+  color: var(--ui-primary);
+  font-size: 27px;
+}
+
+.records-month-arrow:disabled {
+  opacity: .3;
+  cursor: default;
+}
+
+.records-calendar {
+  padding: 16px 10px;
+}
+
+.records-weekdays,
+.records-calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  text-align: center;
+}
+
+.records-weekdays {
+  margin-bottom: 10px;
+  color: var(--ui-muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.records-calendar-grid {
+  row-gap: 5px;
+}
+
+.records-day,
+.records-calendar-empty {
+  min-width: 0;
+  min-height: 52px;
+}
+
+.records-day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--ui-text);
+  font-size: 13px;
+}
+
+.records-day.has-record {
+  background: var(--ui-primary-soft);
+  font-weight: 700;
+}
+
+.records-day:disabled {
+  cursor: default;
+  opacity: 1;
+}
+
+.records-emotion {
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.records-summary-section,
+.records-list-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.records-summary-section h2,
+.records-list-section h2 {
+  margin: 0;
+  font-size: 17px;
+}
+
+.records-summary-sentence {
+  margin-top: 10px;
+  line-height: 1.7;
+}
+
+.records-empty {
+  text-align: center;
+  padding: 28px 16px;
+}
+
+.records-empty .muted {
+  margin-top: 6px;
+}
+
+.records-list-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 68px;
+  padding: 10px 4px;
+  border: 0;
+  border-bottom: 1px solid var(--ui-line);
+  background: transparent;
+  color: var(--ui-text);
+  text-align: left;
+}
+
+.records-list-emotion {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--ui-primary-soft);
+  font-size: 20px;
+}
+
+.records-list-copy {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.records-list-copy strong {
+  font-size: 14px;
+}
+
+.records-list-copy small {
+  color: var(--ui-muted);
+  font-size: 12px;
+}
+
+.records-list-item > span:last-child {
+  color: var(--ui-muted);
+  font-size: 22px;
+}
+
+.records-page button:focus-visible {
+  outline: 3px solid var(--ui-primary);
+  outline-offset: 3px;
+}
+
+.record-detail-emotion {
+  text-align: center;
+  padding: 28px 20px;
+}
+
+.record-detail-symbol {
+  display: block;
+  font-size: 42px;
+  margin-bottom: 12px;
+}
+
+.record-detail-emotion h2 {
+  margin: 8px 0 0;
+}
+
+.record-detail-section {
+  margin-top: 24px;
+}
+
+.record-detail-section > h2 {
+  font-size: 16px;
+  margin: 0 0 12px;
+}
+
+.record-detail-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.record-message {
+  max-width: 88%;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: var(--surface, #fff);
+  overflow-wrap: anywhere;
+}
+
+.record-message.user {
+  align-self: flex-end;
+  background: #e8efdf;
+}
+
+.record-message.ai {
+  align-self: flex-start;
+}
+
+.record-message-role {
+  display: block;
+  font-size: 12px;
+  color: var(--text-muted, #777);
+  margin-bottom: 6px;
+}
+
+.record-message p {
+  margin: 0;
+  white-space: pre-wrap;
+  line-height: 1.6;
+}
+
+.record-detail-wool {
+  margin-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.record-detail-wool strong {
+  font-size: 18px;
+}
+
+.record-delete-section {
+  margin: 28px 0 96px;
+  text-align: center;
+}
+
+.record-delete-button {
+  color: #a34b43;
+}
