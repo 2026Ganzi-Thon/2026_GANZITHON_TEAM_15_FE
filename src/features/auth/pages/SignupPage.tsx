@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from 'react'
 import { useMutation } from '@tanstack/react-query'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { ApiError } from '../../../api/client'
 import { signup } from '../../../api/auth'
 import { ERROR_CODES } from '../../../api/types'
@@ -11,6 +11,16 @@ const SIGNUP_SUCCESS_PATH = '/'
 
 function SignupPage() {
   const navigate = useNavigate()
+  const location = useLocation()
+  const from = location.state?.from
+
+  const redirectPath =
+    from &&
+    typeof from.pathname === 'string' &&
+    from.pathname.startsWith('/') &&
+    !from.pathname.startsWith('//')
+      ? `${from.pathname}${from.search ?? ''}${from.hash ?? ''}`
+      : SIGNUP_SUCCESS_PATH
   const [nickname, setNickname] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -18,7 +28,7 @@ function SignupPage() {
   const mutation = useMutation<SignupResponse, Error, SignupRequest>({
     mutationFn: signup,
     onSuccess: () => {
-      navigate(SIGNUP_SUCCESS_PATH)
+      navigate(redirectPath, { replace: true })
     },
   })
 
