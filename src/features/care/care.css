@@ -1,0 +1,127 @@
+.care-select-page {
+  gap: 0;
+  padding-bottom: 18px;
+}
+
+.care-select-page > .ui-header {
+  margin-bottom: 18px;
+}
+
+.care-progress {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 4px 22px;
+  color: var(--ui-muted);
+  font-size: 12px;
+}
+
+.care-progress-track {
+  height: 6px;
+  flex: 1;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--ui-line);
+}
+
+.care-progress-track span {
+  display: block;
+  width: 66.67%;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--ui-primary);
+}
+
+.care-conversation {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.care-sheep-message {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.care-sheep-message .sheep {
+  flex: 0 0 64px;
+}
+
+.care-bubble {
+  max-width: calc(100% - 74px);
+  margin: 0 0 4px;
+  padding: 13px 15px;
+  border-radius: 17px 17px 17px 4px;
+  background: var(--ui-surface);
+  color: var(--ui-text);
+  font-size: 14px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.care-user-message {
+  align-self: flex-end;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 16px 16px 4px 16px;
+  background: var(--ui-primary-soft);
+  color: var(--ui-primary);
+}
+
+.care-user-message span {
+  font-weight: 700;
+}
+
+.care-user-message small {
+  color: var(--ui-muted);
+  font-size: 11px;
+}
+
+.care-choice-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.care-choice-button {
+  min-width: 0;
+  min-height: 58px;
+  padding: 10px 8px;
+  border: 1px solid var(--ui-line);
+  background: var(--ui-surface);
+  color: var(--ui-text);
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.care-input-area {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 16px;
+}
+
+.care-input-area input {
+  min-width: 0;
+  min-height: 48px;
+  flex: 1;
+  padding: 0 14px;
+  border: 1px solid var(--ui-line);
+  border-radius: 999px;
+  background: var(--ui-surface);
+  color: var(--ui-text);
+}
+
+.care-input-area input::placeholder {
+  color: var(--ui-muted);
+}
+
+.care-input-area .ui-button {
+  min-height: 44px;
+  padding: 8px 14px;
+  border-radius: 999px;
+}
