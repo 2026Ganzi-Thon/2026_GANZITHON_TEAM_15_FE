@@ -8,6 +8,7 @@ import type { SseEventMap, SseEventName } from '../../../api/sse'
 import { Sheep } from '../../../components/Sheep'
 import { BackHeader } from '../../../components/navigation'
 import { Button, Page } from '../../../components/ui'
+import { CrisisBanner } from '../../safety/CrisisBanner'
 import '../care-chat.css'
 
 const EMOTION_LABELS = {
@@ -231,6 +232,7 @@ export default function CareChatPage() {
   return (
     <Page className="care-chat-page">
       <BackHeader title="오늘의 케어" fallback={`/care/${diaryId}`} />
+      <CrisisBanner />
       <header className="care-chat-context">
         <span>{mode.label}</span>
         {state.emotion && <span>{EMOTION_LABELS[state.emotion]} 마음</span>}

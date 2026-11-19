@@ -11,6 +11,10 @@
   margin-bottom: 8px;
 }
 
+.care-chat-page > .crisis-banner {
+  flex: 0 0 auto;
+}
+
 .care-chat-context {
   display: flex;
   align-items: center;
