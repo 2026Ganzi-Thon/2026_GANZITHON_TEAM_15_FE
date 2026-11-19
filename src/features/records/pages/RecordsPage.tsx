@@ -126,7 +126,7 @@ function RecordsPage() {
               <p className="muted">월별 돌아보기를 불러오지 못했어요.</p>
             ) : summaryQuery.data ? (
               <Card>
-                <p>이번 달 모은 털실 <strong>{summaryQuery.data.woolCount}개</strong></p>
+                <p>이번 달 털 <strong>{summaryQuery.data.woolCount}올</strong>을 모았어요</p>
                 {summaryQuery.data.sentence && <p className="records-summary-sentence">{summaryQuery.data.sentence}</p>}
                 {!summaryQuery.data.sentence && <p className="muted">기록이 조금 더 쌓이면 이달의 문장을 만날 수 있어요.</p>}
               </Card>

@@ -9,6 +9,13 @@ import { Sheep } from '../../../components/Sheep'
 import { Page } from '../../../components/ui'
 import '../care-complete.css'
 
+const SUMMARY_TITLES: Record<string, string> = {
+  LISTEN: '털어놓은 마음',
+  COMFORT: '오늘 받은 위로의 말',
+  ORGANIZE: '정리된 생각 세 줄',
+  SOLVE: '해볼 행동',
+}
+
 function getCompletionFromRouteState(value: unknown): CompleteCareResponse | null {
   if (typeof value !== 'object' || value === null || !('completion' in value)) return null
   const completion = value.completion
@@ -67,6 +74,7 @@ export default function CareCompletePage() {
 
   const sheepStage = sheepQuery.data?.stage ?? completion.wool.stage
   const summaryText = completion.summary.text.trim()
+  const summaryTitle = SUMMARY_TITLES[completion.summary.careType]
 
   return (
     <Page className="care-complete-page">
@@ -96,7 +104,7 @@ export default function CareCompletePage() {
       </section>
 
       <section className="care-summary-card">
-        <h2>오늘 받은 위로의 말</h2>
+        {summaryTitle && <h2>{summaryTitle}</h2>}
         {summaryText
           ? <p>{completion.summary.text}</p>
           : <p className="care-summary-empty">오늘 받은 위로의 말이 없어요.</p>}
