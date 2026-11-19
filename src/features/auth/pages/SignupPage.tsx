@@ -1,8 +1,8 @@
-import { useState, type FormEvent } from 'react'
+import { useEffect, useState, type FormEvent } from 'react'
 import { useMutation } from '@tanstack/react-query'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { ApiError } from '../../../api/client'
-import { signup } from '../../../api/auth'
+import { checkNickname, signup } from '../../../api/auth'
 import { ERROR_CODES } from '../../../api/types'
 import type { SignupRequest, SignupResponse } from '../../../api/types'
 import './auth.css'
@@ -26,11 +26,39 @@ function SignupPage() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [agreed, setAgreed] = useState(false)
+  const [availabilityMessage, setAvailabilityMessage] = useState<{ nickname: string; message: string } | null>(null)
 
   const mutation = useMutation<SignupResponse, Error, SignupRequest>({
     mutationFn: signup,
     onSuccess: () => navigate(redirectPath, { replace: true }),
   })
+
+  useEffect(() => {
+    const candidate = nickname.trim()
+    if (candidate.length < 2) return
+
+    const controller = new AbortController()
+    const timer = window.setTimeout(() => {
+      void checkNickname(candidate, controller.signal)
+        .then(result => {
+          if (!controller.signal.aborted) {
+            setAvailabilityMessage(
+              !result.available && result.message
+                ? { nickname: candidate, message: result.message }
+                : null,
+            )
+          }
+        })
+        .catch(() => {
+          // 참고용 확인 실패는 조용히 무시하고 가입 제출을 허용합니다.
+        })
+    }, 500)
+
+    return () => {
+      window.clearTimeout(timer)
+      controller.abort()
+    }
+  }, [nickname])
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -43,6 +71,9 @@ function SignupPage() {
 
   const nicknameError = apiError?.code === ERROR_CODES.ACCOUNT_NICKNAME_UNAVAILABLE
     ? apiError.message
+    : null
+  const currentAvailabilityMessage = availabilityMessage?.nickname === nickname.trim()
+    ? availabilityMessage.message
     : null
 
   const formError = mutation.isError
@@ -72,7 +103,11 @@ function SignupPage() {
             <input
               type="text"
               value={nickname}
-              onChange={(event) => setNickname(event.target.value)}
+              onChange={(event) => {
+                setNickname(event.target.value)
+                setAvailabilityMessage(null)
+                mutation.reset()
+              }}
               placeholder="사용할 닉네임을 입력해 주세요"
               minLength={2}
               maxLength={10}
@@ -86,7 +121,9 @@ function SignupPage() {
             <span className="auth-counter">{nickname.length} / 10</span>
           </div>
 
-          {nicknameError && <p className="auth-error" role="alert">{nicknameError}</p>}
+          {(nicknameError || currentAvailabilityMessage) && (
+            <p className="auth-error" role="alert">{nicknameError ?? currentAvailabilityMessage}</p>
+          )}
 
           <label className="auth-field">
             <span>이메일</span>
