@@ -1,0 +1,67 @@
+.onboarding-page {
+  min-height: 100svh;
+  gap: 20px;
+  padding-top: max(24px, env(safe-area-inset-top));
+}
+
+.onboarding-brand {
+  align-self: center;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.onboarding-illustration {
+  display: grid;
+  flex: 1 1 220px;
+  min-height: 190px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--ui-primary-soft);
+}
+
+.onboarding-copy {
+  text-align: center;
+}
+
+.onboarding-copy h1 {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 0;
+  font-size: clamp(23px, 6vw, 29px);
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.onboarding-progress {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 0;
+}
+
+.onboarding-progress span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ui-line);
+}
+
+.onboarding-progress span.active {
+  background: var(--ui-primary);
+}
+
+.onboarding-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.onboarding-skip {
+  min-height: 44px;
+  border: 0;
+  background: transparent;
+  color: var(--ui-primary);
+  font-weight: 700;
+}
