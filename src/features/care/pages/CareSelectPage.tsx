@@ -7,6 +7,7 @@ import { Toast } from '../../../components/feedback'
 import { BackHeader } from '../../../components/navigation'
 import { Sheep } from '../../../components/Sheep'
 import { Button, Page } from '../../../components/ui'
+import { CrisisBanner } from '../../safety/CrisisBanner'
 import '../care.css'
 
 const EMOTION_LABELS = {
@@ -65,6 +66,7 @@ export default function CareSelectPage() {
   return (
     <Page className="care-select-page">
       <BackHeader title="오늘의 케어" fallback="/" />
+      <CrisisBanner />
       <div className="care-progress" role="progressbar" aria-label="케어 진행 단계" aria-valuemin={1} aria-valuemax={3} aria-valuenow={2}>
         <span className="care-progress-track"><span /></span>
         <span>2단계 · 돌봄 방식 선택</span>

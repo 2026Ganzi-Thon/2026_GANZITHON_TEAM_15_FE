@@ -8,6 +8,7 @@ import { BottomNav } from '../../../components/navigation'
 import { QueryState, Toast } from '../../../components/feedback'
 import { Page } from '../../../components/ui'
 import { Sheep } from '../../../components/Sheep'
+import { CrisisBanner } from '../../safety/CrisisBanner'
 import '../home.css'
 
 // Swagger는 TIRED 예시만 확인. 값 목록은 Notion API 명세·ERD 기준.
@@ -64,6 +65,7 @@ function HomePage() {
           </svg>
         </Link>
       </header>
+      <CrisisBanner />
       <QueryState
         pending={queryPending}
         error={queryError}

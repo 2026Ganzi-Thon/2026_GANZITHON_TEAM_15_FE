@@ -7,6 +7,7 @@ import { QueryState } from '../../../components/feedback'
 import { FarmInvitation, BackHeader } from '../../../components/navigation'
 import { Sheep } from '../../../components/Sheep'
 import { Page } from '../../../components/ui'
+import { CrisisBanner } from '../../safety/CrisisBanner'
 import '../care-complete.css'
 
 const SUMMARY_TITLES: Record<string, string> = {
@@ -79,6 +80,7 @@ export default function CareCompletePage() {
   return (
     <Page className="care-complete-page">
       <BackHeader title="오늘의 케어" fallback="/" />
+      <CrisisBanner />
       <section className="care-complete-hero">
         <h1>털 한 올이 쌓였어요</h1>
         <div className="care-complete-sheep">
