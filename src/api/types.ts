@@ -69,6 +69,13 @@ export interface SignupResponse {
   expiresInSeconds: number
 }
 
+// Notion API 명세와 팀 테스트 결과 기준이며, Swagger 대조 전입니다.
+export interface NicknameAvailabilityResponse {
+  available: boolean
+  reason?: 'LENGTH' | 'CHARACTERS' | 'DUPLICATE' | 'NOT_ALLOWED'
+  message?: string
+}
+
 export interface MeResponse {
   userId: number
   nickname: string
