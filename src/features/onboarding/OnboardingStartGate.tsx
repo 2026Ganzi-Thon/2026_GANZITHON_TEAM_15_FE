@@ -1,9 +1,8 @@
 import { Navigate, Outlet } from 'react-router-dom'
 import { getToken } from '../../api/token'
-import { hasSeenOnboarding } from './onboardingStorage'
 
 export default function OnboardingStartGate() {
-  if (!getToken() && !hasSeenOnboarding()) {
+  if (!getToken()) {
     return <Navigate to="/onboarding" replace />
   }
 

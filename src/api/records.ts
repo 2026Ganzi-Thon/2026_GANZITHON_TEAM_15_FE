@@ -43,7 +43,7 @@ export interface DiaryDetailResponse {
     careType: CareType
     text: string
   } | null
-  woolEarned: number
+  woolEarned: boolean
   messages: DiaryMessage[]
 }
 

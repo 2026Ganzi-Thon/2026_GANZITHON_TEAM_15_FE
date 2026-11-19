@@ -236,6 +236,13 @@ export default function CareChatPage() {
       <header className="care-chat-context">
         <span>{mode.label}</span>
         {state.emotion && <span>{EMOTION_LABELS[state.emotion]} 마음</span>}
+        <Link
+          className="care-chat-help-link"
+          to="/help/crisis"
+          state={{ returnTo: location.pathname + location.search }}
+        >
+          상담 연결
+        </Link>
       </header>
       <section className="care-chat-progress" aria-label="대화 진행 상황">
         <div className="care-chat-progress-copy">

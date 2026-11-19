@@ -3,7 +3,6 @@ import { Navigate, useNavigate } from 'react-router-dom'
 import { getToken } from '../../../api/token'
 import { Sheep } from '../../../components/Sheep'
 import { Button, Page } from '../../../components/ui'
-import { hasSeenOnboarding, markOnboardingSeen } from '../onboardingStorage'
 import '../onboarding.css'
 
 const SLIDES = [
@@ -17,10 +16,8 @@ export default function OnboardingPage() {
   const [slideIndex, setSlideIndex] = useState(0)
 
   if (getToken()) return <Navigate to="/" replace />
-  if (hasSeenOnboarding()) return <Navigate to="/login" replace />
 
   const finishOnboarding = () => {
-    markOnboardingSeen()
     navigate('/login', { replace: true })
   }
 

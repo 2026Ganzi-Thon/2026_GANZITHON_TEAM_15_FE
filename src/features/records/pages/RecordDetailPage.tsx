@@ -14,6 +14,13 @@ const CARE_LABELS: Record<string, string> = {
   SOLVE: '해결 방법 찾기',
 }
 
+const SUMMARY_TITLES: Record<string, string> = {
+  LISTEN: '털어놓은 마음',
+  COMFORT: '오늘 받은 위로의 말',
+  ORGANIZE: '정리된 생각 세 줄',
+  SOLVE: '해볼 행동',
+}
+
 const EMOTION_SYMBOLS: Record<string, string> = {
   JOY: '☀️',
   CALM: '🌿',
@@ -128,17 +135,19 @@ function RecordDetailPage() {
 
           {detail.summary && (
             <section className="record-detail-section">
-              <h2>마음 정리</h2>
+              {SUMMARY_TITLES[detail.summary.careType] && (
+                <h2>{SUMMARY_TITLES[detail.summary.careType]}</h2>
+              )}
               <Card>
-                <p>{detail.summary.text}</p>
+                <p className="record-detail-summary">{detail.summary.text}</p>
               </Card>
             </section>
           )}
 
           <Card className="record-detail-wool">
             <span>오늘 모은 털</span>
-            {typeof detail.woolEarned === 'number' && Number.isFinite(detail.woolEarned) && (
-              <strong>{detail.woolEarned}올</strong>
+            {typeof detail.woolEarned === 'boolean' && (
+              <strong>{detail.woolEarned ? 1 : 0}올</strong>
             )}
           </Card>
 

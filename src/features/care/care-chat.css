@@ -17,6 +17,7 @@
 
 .care-chat-context {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
@@ -24,6 +25,15 @@
   padding: 0 4px 12px;
   color: var(--ui-muted);
   font-size: 13px;
+}
+
+.care-chat-help-link {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  color: var(--ui-primary);
+  font-weight: 700;
+  text-decoration: underline;
 }
 
 .care-chat-context span:first-child {

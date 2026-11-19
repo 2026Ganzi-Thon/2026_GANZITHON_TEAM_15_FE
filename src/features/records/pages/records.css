@@ -223,6 +223,10 @@
   line-height: 1.6;
 }
 
+.record-detail-summary {
+  white-space: pre-line;
+}
+
 .record-detail-wool {
   margin-top: 24px;
   display: flex;
@@ -240,5 +244,5 @@
 }
 
 .record-delete-button {
-  color: #a34b43;
+  color: var(--ui-surface);
 }
