@@ -73,7 +73,7 @@ export const diariesHandlers = [
           careType: 'COMFORT',
           text: '오늘 하루를 버텨낸 것만으로도 충분히 의미 있어요.',
         },
-        woolEarned: 1,
+        woolEarned: true,
         messages: [
           {
             role: 'USER',
