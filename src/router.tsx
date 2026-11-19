@@ -3,6 +3,8 @@ import RequireAuth from './components/RequireAuth'
 import AuthRedirectHandler from './components/AuthRedirectHandler'
 import { authRoutes } from './features/auth/routes'
 import { homeRoutes } from './features/home/routes'
+import OnboardingStartGate from './features/onboarding/OnboardingStartGate'
+import { onboardingRoutes } from './features/onboarding/routes'
 import { farmRoutes } from './features/farm/routes'
 import { worryRoutes } from './features/worry/routes'
 import { meRoutes } from './features/me/routes'
@@ -27,11 +29,20 @@ export const router = createBrowserRouter([
     ),
     children: [
       ...authRoutes,
+      ...onboardingRoutes,
       ...safetyRoutes,
+      {
+        element: <OnboardingStartGate />,
+        children: [
+          {
+            element: <RequireAuth />,
+            children: homeRoutes,
+          },
+        ],
+      },
       {
         element: <RequireAuth />,
         children: [
-          ...homeRoutes,
           ...reportRoutes,
           ...farmRoutes,
           ...worryRoutes,
