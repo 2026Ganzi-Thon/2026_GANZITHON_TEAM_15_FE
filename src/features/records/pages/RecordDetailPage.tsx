@@ -136,8 +136,10 @@ function RecordDetailPage() {
           )}
 
           <Card className="record-detail-wool">
-            <span>오늘 모은 털실</span>
-            <strong>🧶 {detail.woolEarned}개</strong>
+            <span>오늘 모은 털</span>
+            {typeof detail.woolEarned === 'number' && Number.isFinite(detail.woolEarned) && (
+              <strong>{detail.woolEarned}올</strong>
+            )}
           </Card>
 
           <section className="record-delete-section">

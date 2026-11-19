@@ -92,10 +92,6 @@ export default function CareSelectPage() {
           ))}
         </div>
       </section>
-      <form className="care-input-area" onSubmit={event => event.preventDefault()}>
-        <input aria-label="자유롭게 하고 싶은 말" placeholder="하고 싶은 말을 적어보세요" />
-        <Button type="submit" disabled aria-label="자유 입력 전송 기능 미구현">전송</Button>
-      </form>
       {mutation.isError && <Toast message={errorMessage} onClose={() => mutation.reset()} />}
     </Page>
   )
