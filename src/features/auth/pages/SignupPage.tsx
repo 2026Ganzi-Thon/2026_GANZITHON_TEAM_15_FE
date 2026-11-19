@@ -106,6 +106,7 @@ function SignupPage() {
               onChange={(event) => {
                 setNickname(event.target.value)
                 setAvailabilityMessage(null)
+                mutation.reset()
               }}
               placeholder="사용할 닉네임을 입력해 주세요"
               minLength={2}
